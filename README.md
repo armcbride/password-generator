@@ -1,10 +1,12 @@
 # password-generator
 
-Contributors 
+# Contributors 
 armcbride
 
-Techonolgies
+# Techonolgies
 HTML, CSS, javaScript
 
-Contact
+# Contact
 armcbride17@gmail.com
+
+# Live-link
