@@ -36,10 +36,6 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //Password input types for randomizer
-var characterTypes = {
-  'upper': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  'lower': 'abcdefghijklmnopqrstuvwxyz',
-  'number': '0123456789',
-  'special': '!$%^&*()-=+[]{};#:@~,./<>?'
-};
 
+
+console.log(isTrue);
