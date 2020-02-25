@@ -51,3 +51,51 @@ while (passwordCharacters.length < stringLength) {
   }
 }
 
+// Converts password array into a string
+var deliverable = passwordCharacters.join('')
+console.log(passwordCharacters);
+
+console.log(deliverable);
+
+// Write password to the #password input
+function writePassword() {
+  var randomizerFunc = [getLowerCase, getUpperCase, getNumberCase, getSpecialCase]
+  for (i = 0; i < isTrue.length; i++) {
+    if (isTrue[i] === true) {
+        passwordCharacters.push(randomizerFunc[i]());
+    }
+}
+  var password = deliverable
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+  var generateBtn = document.querySelector("#generate");
+
+}
+
+// // Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+// All Generator Functions 
+var randomizerFunc = [getLowerCase(), getUpperCase(), getNumberCase(), getSpecialCase()]
+
+console.log(String(randomizerFunc))
+
+ function getLowerCase() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+
+  }
+  
+function getUpperCase() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
+
+  function getNumberCase() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  }
+
+  function getSpecialCase() {
+    const special = '!@$%^&*+-';
+    return special[Math.floor(Math.random() * special.length)];
+  }
