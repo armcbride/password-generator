@@ -40,6 +40,7 @@ var randomizerFunc = [getLowerCase, getUpperCase, getNumberCase, getSpecialCase]
 const passwordCharacters = []
 var isTrue =[lowerCase, upperCase, specialCase, numberCase]
 
+//tests console for is True -works
 console.log(isTrue);
 
 // Checks which chararacter types are true and generates password
@@ -54,7 +55,7 @@ while (passwordCharacters.length < stringLength) {
 // Converts password array into a string
 var deliverable = passwordCharacters.join('')
 console.log(passwordCharacters);
-
+//checks console for deliverable function
 console.log(deliverable);
 
 // Write password to the #password input
@@ -73,13 +74,15 @@ function writePassword() {
 
 }
 
-// // Add event listener to generate button
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
 // All Generator Functions 
+//array for the randomizer function
 var randomizerFunc = [getLowerCase(), getUpperCase(), getNumberCase(), getSpecialCase()]
 
+//logs the randomizer function -WORKS
 console.log(String(randomizerFunc))
 
  function getLowerCase() {
