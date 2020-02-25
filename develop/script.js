@@ -22,6 +22,7 @@ else {
 //tests input for password prompts - works
 console.log(lowerCase, upperCase, specialCase, numberCase);
 
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -35,7 +36,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //Password input types for randomizer
-var charTypes = {
+var characterTypes = {
   'upper': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   'lower': 'abcdefghijklmnopqrstuvwxyz',
   'number': '0123456789',
