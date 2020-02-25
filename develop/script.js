@@ -36,6 +36,18 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 //Password input types for randomizer
-
+var randomizerFunc = [getLowerCase, getUpperCase, getNumberCase, getSpecialCase]
+const passwordCharacters = []
+var isTrue =[lowerCase, upperCase, specialCase, numberCase]
 
 console.log(isTrue);
+
+// Checks which chararacter types are true and generates password
+while (passwordCharacters.length < stringLength) {
+  for (i = 0; i < isTrue.length; i++) {
+      if (isTrue[i] === true) {
+          passwordCharacters.push(randomizerFunc[i]());
+      }
+  }
+}
+
