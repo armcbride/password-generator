@@ -97,6 +97,9 @@ button[disabled] {
 .float-right {
   float: right;
 }
+.checkbox-container {
+  text-align: center;
+}
 
 #password {
   -webkit-appearance: none;
