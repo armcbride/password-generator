@@ -17,4 +17,4 @@ armcbride17@gmail.com
 
 # View
 
-<img src= "./password-generator-screenShot.PNG">
+<img src= "./develop/password-generator-screenShot.PNG">
