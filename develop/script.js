@@ -1,104 +1,67 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
+//Global Variables
+const generateBtn = document.getElementById("generate");
+const display = document.getElementById("password");
+const stringLength = document.getElementById("slider");
+const lowerCase = document.getElementById("lowercase");
+const upperCase = document.getElementById("uppercase");
+const specialCase = document.getElementById("special");
+const numberCase = document.getElementById("numbers");
 
-//Beginning of password building, prompts
-var stringLength = prompt("Enter a number between 7 and 120 for your password length.")
+//Characters possible
+var lowerChars="abcdefghijklmnopqrstuvwxyz";
+var upperChars="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numberChars="0123456789";
+var specialChars="!@#$%^&*";
 
-//tests for stringLength variable - works
-console.log(stringLength);
-
-//prompts for the password criteria
-if (stringLength > 6 && stringLength < 121) {
-  alert("Your password will be " + stringLength + " characters long. For the following prompts, select which elements you would like your password to include.")
-
-  var lowerCase = confirm("Lower case letters?");
-  var upperCase = confirm("Upper case letters?");
-  var specialCase = confirm("Special Characters?");
-  var numberCase = confirm("Numbers?");
-}
-else { 
-  stringLength = prompt("Enter a number between 7 and 120 for your password length.")
-}
-//tests input for password prompts - works
-console.log(lowerCase, upperCase, specialCase, numberCase);
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+//Inputs value amount on page
+function rangeValue() {
+  var newValue = slider.value;
+  var target = document.getElementById("range-value");
+  target.innerHTML = newValue;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+slider.addEventListener("input", rangeValue);
 
-//Password input types for randomizer
-var randomizerFunc = [getLowerCase, getUpperCase, getNumberCase, getSpecialCase]
-const passwordCharacters = []
-var isTrue =[lowerCase, upperCase, specialCase, numberCase]
+//creats the array
+function makeArray() {
+  let input = [];
+  let userArray = [];
 
-//tests console for is True -works
-console.log(isTrue);
+  if (lowercase.checked) {
+    AddArray(lowerChars, input);
+  };
 
-// Checks which chararacter types are true and generates password
-while (passwordCharacters.length < stringLength) {
-  for (i = 0; i < isTrue.length; i++) {
-      if (isTrue[i] === true) {
-          passwordCharacters.push(randomizerFunc[i]());
-      }
-  }
-}
+  if (uppercase.checked) {
+    AddArray(upperChars, input);
+  };
 
-// Converts password array into a string
-var deliverable = passwordCharacters.join('')
-console.log(passwordCharacters);
-//checks console for deliverable function
-console.log(deliverable);
+  if (numbers.checked) {
+    AddArray(numberChars, input);
+  };
 
-// Write password to the #password input
-function writePassword() {
-  var randomizerFunc = [getLowerCase, getUpperCase, getNumberCase, getSpecialCase]
-  for (i = 0; i < isTrue.length; i++) {
-    if (isTrue[i] === true) {
-        passwordCharacters.push(randomizerFunc[i]());
-    }
-}
-  var password = deliverable
-  var passwordText = document.querySelector("#password");
+  if (special.checked) {
+    AddArray(specialChars, input);
+  };
 
-  passwordText.value = password;
-  var generateBtn = document.querySelector("#generate");
+  randomizer(input, userArray, slider.value);
 
-}
+  display.innerHTML = userArray.join('').toString();
+};
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", makeArray); 
+
+function AddArray (str,arr) {
+  for (var i = 0; i < str.length; i++) {
+      arr.push(str.charAt(i));
+  };
+};
+
+function randomizer (arr, arr2, num) {
+  for (var i = 0; i < num; i++) {
+      let val = Math.floor(Math.random() * arr.length) + 1;
+      arr2.push(arr[val])
+  };
+};
 
 
-// All Generator Functions 
-//array for the randomizer function
-var randomizerFunc = [getLowerCase(), getUpperCase(), getNumberCase(), getSpecialCase()]
-
-//logs the randomizer function -WORKS
-console.log(String(randomizerFunc))
-
- function getLowerCase() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-
-  }
-  
-function getUpperCase() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  }
-
-  function getNumberCase() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  }
-
-  function getSpecialCase() {
-    const special = '!@$%^&*+-';
-    return special[Math.floor(Math.random() * special.length)];
-  }
+ 
