@@ -97,8 +97,10 @@ button[disabled] {
 .float-right {
   float: right;
 }
-.checkbox-container {
+#checkbox-around {
   text-align: center;
+  border: 2px dashed #c0c7cf;
+  border-radius: 6px;
 }
 
 #password {
